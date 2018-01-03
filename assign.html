@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Khushbu Jain">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Charts</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://rawgithub.com/highcharts/draggable-points/master/draggable-points.js"></script>
+</head>
+<body>
+	<div class="container">
+        <h2>Module 1</h2>
+		<div class="row">
+			<div class="col-lg-6">
+				<div id="container_line"></div>
+			</div>
+			<div class="col-lg-4">
+				<div id="container_bar"></div>
+			</div>			
+			<div class="col-lg-2">
+				<div id="container_pie"></div>
+			</div>
+		</div>
+        <h2>Module 2</h2>
+        <pre>Note: Hover to see drag and drop facility</pre>
+		<div class="row">
+			<div class="col-lg-6">
+				<div id="container_linedrag"></div>
+			</div>
+			<div class="col-lg-4">
+				<div id="container1_bardrag"></div>
+			</div>			
+			<div class="col-lg-2">
+				<div id="container2_piedrag"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+$(){
+}
+var chart = new Highcharts.Chart({
+
+    chart: {
+        renderTo: 'container_line',
+        animation: false
+    },
+    
+    title: {
+        text: 'Line Chart'
+    },
+
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+
+    plotOptions: {
+        column: {
+            stacking: 'normal'
+        },
+        line: {
+            cursor: 'ns-resize'
+        }
+    },
+	tooltip: { enabled: false },
+	credits: {
+		enabled: false
+	},
+	exporting: { enabled: false },
+    series: [{
+		showInLegend: false, 
+        data: [0, 11.5, 196.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 134.1, 95.6, 150.4],
+        draggableY: false
+    }, {
+		showInLegend: false, 
+        data: [20, 41.5, 106.4, 121.2, 194.0, 176.0, 135.6, 118.5, 210.4, 194.1, 195.6, 54.4],
+        draggableY: false
+    }, {
+		showInLegend: false, 
+        data: [80, 71.5, 106.4, 179.2, 144.0, 176.0, 190.6, 148.5, 216.4, 145.1, 191.6, 154.4],
+        draggableY: false
+    }]
+
+});
+
+var chart = new Highcharts.Chart({
+
+    chart: {
+        renderTo: 'container_linedrag',
+        animation: false
+    },
+    
+    title: {
+        text: 'Line Chart'
+    },
+
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+
+    plotOptions: {
+        column: {
+            stacking: 'normal'
+        },
+        line: {
+            cursor: 'ns-resize'
+        }
+    },
+	credits: {
+		enabled: false
+	},
+	exporting: { enabled: false },
+    series: [{
+		showInLegend: false, 
+        data: [0, 11.5, 196.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 134.1, 95.6, 150.4],
+        draggableY: true
+    }, {
+		showInLegend: false, 
+        data: [20, 41.5, 106.4, 121.2, 194.0, 176.0, 135.6, 118.5, 210.4, 194.1, 195.6, 54.4],
+        draggableY: true
+    }, {
+		showInLegend: false, 
+        data: [80, 71.5, 106.4, 179.2, 144.0, 176.0, 190.6, 148.5, 216.4, 145.1, 191.6, 154.4],
+        draggableY: true
+    }]
+
+});
+
+Highcharts.chart('container_bar', {
+    chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: 'Bar Chart'
+    },
+
+    xAxis: {
+        categories: [
+            'Row 1',
+            'Row 2',
+            'Row 3',
+            'Row 4'
+        ],
+        crosshair: true,
+        title: {
+            text: 'Months'
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Price'
+        }
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0,
+            borderWidth: 0
+        }
+    },
+	tooltip: { enabled: false },
+	credits: {
+		enabled: false
+	},
+	exporting: { enabled: false },
+    series: [{
+		showInLegend: false, 
+        data: [49.9, 71.5, 106.4, 129.2]
+
+    }, {
+		showInLegend: false, 
+        data: [83.6, 78.8, 98.5, 93.4]
+
+    }, {
+		showInLegend: false, 
+        data: [48.9, 38.8, 39.3, 41.4]
+
+    }]
+});
+
+Highcharts.chart('container1_bardrag', {
+    chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: 'Bar Chart'
+    },
+
+    xAxis: {
+        categories: [
+            'Row 1',
+            'Row 2',
+            'Row 3',
+            'Row 4'
+        ],
+        crosshair: true,
+        title: {
+            text: 'Months'
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Price'
+        }
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0,
+            borderWidth: 0
+        }
+    },
+	credits: {
+		enabled: false
+	},
+	exporting: { enabled: false },
+    series: [{
+		showInLegend: false, 
+        data: [49.9, 71.5, 106.4, 129.2]
+
+    }, {
+		showInLegend: false, 
+        data: [83.6, 78.8, 98.5, 93.4]
+
+    }, {
+		showInLegend: false, 
+        data: [48.9, 38.8, 39.3, 41.4]
+
+    }]
+});
+
+Highcharts.chart('container_pie', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+
+    title: {
+        text: 'Pie Chart'
+    },
+
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: false
+            },
+            showInLegend: true
+        }
+    },
+	tooltip: { enabled: false },
+	credits: {
+		enabled: false
+	},
+	exporting: { enabled: false },
+    series: [{
+        colorByPoint: true,
+		showInLegend: false, 
+        data: 
+        [{
+            name: 'A',
+            y: 52,
+            selected: true
+        }, {
+            name: 'B',
+            y: 18,
+        }, {
+            name: 'C',
+            y: 10,
+        }, {
+            name: 'D',
+            y: 15,
+        }, {
+            name: 'E',
+            y: 5,
+        }]
+    }]
+});
+
+Highcharts.chart('container2_piedrag', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+
+    title: {
+        text: 'Pie Chart'
+    },
+
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: false
+            },
+            showInLegend: true
+        }
+    },
+	credits: {
+		enabled: false
+	},
+	exporting: { enabled: false },
+    series: [{
+        colorByPoint: true,
+		showInLegend: false, 
+        data: 
+        [{
+            name: 'A',
+            y: 52,
+            selected: true
+        }, {
+            name: 'B',
+            y: 18,
+        }, {
+            name: 'C',
+            y: 10,
+        }, {
+            name: 'D',
+            y: 15,
+        }, {
+            name: 'E',
+            y: 5,
+        }]
+    }]
+});
+</script>
+</html>
